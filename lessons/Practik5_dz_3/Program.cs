@@ -11,9 +11,7 @@ void input_array(int[] array)
 void Razn(int[] array)
 {
     int max = 0; int min = 0; int razn = 0;
-    for (int i = 0; i < array.Length - 1; i++)
-    {
-        for (int j = i + 1; j < array.Length; j++)
+        for (int j = 1; j < array.Length - 1; j++)
         {
             if(array[j] > array[max]) max = j;
             else
@@ -21,8 +19,7 @@ void Razn(int[] array)
         }
     razn = array[max] - array[min];
     Console.WriteLine(razn);
-    return;
-    }
+    
     
 }
 
