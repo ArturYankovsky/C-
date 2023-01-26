@@ -14,4 +14,4 @@ for(int i = 0; i < size.Length; i++)
     if(size[i] > 0) m = m + 1;
 }
 
-Console.WriteLine($"{"Количество чисел больше нуля: "}{m}");
+Console.WriteLine($"{"Количество чисел больше нуля: "}{m}"); 
