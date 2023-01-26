@@ -20,4 +20,4 @@ double y1 = k1 * x + b1;
 double y2 = k2 * x + b2;
 
 if(y1 == y2) Console.WriteLine($"({x}; {y1})");
-    else Console.WriteLine("точек пересечения нет");
+    else Console.WriteLine("точек пересечения нет"); 
