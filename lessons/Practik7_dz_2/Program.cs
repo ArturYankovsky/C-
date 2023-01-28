@@ -1,4 +1,5 @@
-﻿// Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
+﻿// Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
+//и возвращает значение этого элемента или же указание, что такого элемента нет.
 
 //Например, задан массив:
 
@@ -39,9 +40,12 @@ second = n % 10;
             if (first == i && second == j)
                 result = matrix[i, j];
         } 
+        
     }
     if (result == 0) Console.WriteLine("Такого элемента нет в массиве");
-    return result; 
+        else Console.WriteLine(result);
+    return result;
+    
 }
 
 
@@ -52,6 +56,6 @@ int[,] matrix = new int[size[0], size[1]];
 Console.WriteLine("Начальная матрица: ");
 InputMatrix(matrix);
 Console.WriteLine();
-Console.Write(Release(matrix));
+Release(matrix);
 
 
