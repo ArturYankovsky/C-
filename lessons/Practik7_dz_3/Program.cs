@@ -23,11 +23,11 @@ void InputMatrix(int[,] matrix)
 double Release(int[,] matrix){
 double sum1 = 0;
 double n = matrix.GetLength(0);
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    for (int j = 0; j < matrix.GetLength(1); j++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+        for (int i = 0; i < matrix.GetLength(0); i++)
         {
-            sum1 = sum1 + matrix[j, i];
+            sum1 = sum1 + matrix[i, j];
         }
         Console.Write($"{sum1 / n}\t");
         sum1 = 0;
