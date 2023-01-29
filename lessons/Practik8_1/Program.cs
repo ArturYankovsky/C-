@@ -41,6 +41,7 @@ int[,] matrix = new int[size[0], size[1]];
 Console.WriteLine("Начальный массив:");
 InputMatrix(matrix);
 PrintMatrix(matrix);
+//
 
 Console.WriteLine("Введите элемент:");
 int el = Convert.ToInt32(Console.ReadLine());
