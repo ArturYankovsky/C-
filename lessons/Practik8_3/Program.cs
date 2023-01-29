@@ -2,54 +2,65 @@
 //Частотный словарь содержит информацию о том, сколько раз встречается элемент входных данных.
 
 
-void InputMatrix(int[,] matrix)
+bool check(int[] array, int n)
 {
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    for (int i = 0;i < array.Length; i++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-            matrix[i, j] = new Random().Next(0, 11); // [-10, 10]
+        if (array[i] == n)
+            return false;
     }
+    return true;
 }
 
-void PrintMatrix(int[,] matrix)
+int InputMatrix(int[,] matrix, int[] array)
 {
+    int k = 0;
     for (int i = 0; i < matrix.GetLength(0); i++)
     {
         for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            matrix[i, j] = new Random().Next(0, 11); // [-10, 10]
             Console.Write($"{matrix[i, j]} \t");
+            if (check(array, matrix[i,j]))
+            {
+                array[k] = matrix[i,j];
+                k++;
+            }
+        }
         Console.WriteLine();
     }
+    return k;
 }
 
-int[,] Release(int[,] matrix){
-    for (int i = 0; i < matrix.GetLength(0); i++)
+void Release(int[,] matrix, int [] array, int array_len)
+{
+    for (int k = 0; k <= array_len; k++)
     {
-        for (int j = i + 1; j < matrix.GetLength(1); j++)
+        int count = 0;
+        for (int i = 0; i < matrix.GetLength(0); i++)
         {
-            int temp = matrix[i,j];
-            matrix[i,j] = matrix[j,i];
-            matrix[j,i] = temp;
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                if (array[k] == matrix[i,j])
+                count++;
+            }
         }
+        Console.WriteLine($"Элемент {array[k]} - {count} раз");
     }
-    return matrix;
 }
-
 
 Console.Clear();
 Console.Write("Введите размер матрицы: ");
 int[] size = Console.ReadLine().Split(" ").Select(x => int.Parse(x)).ToArray();
-while (size[0] != size[1])
-{
-    Console.Write("Ошибка!! Введите размер матрицы: ");
-    size = Console.ReadLine().Split(" ").Select(x => int.Parse(x)).ToArray();
-}
+int[] array = new int[size[0] * size[1]];
 // size[0] - row
 // size[1] - column
 int[,] matrix = new int[size[0], size[1]];
 Console.WriteLine("Начальный матрица:");
-InputMatrix(matrix);
-PrintMatrix(matrix);
+int k = InputMatrix(matrix, array);
+Release(matrix, array, k);
 
-Console.WriteLine("Конечная матрица:");
-PrintMatrix(Release(matrix));
+// Console.WriteLine("Конечная матрица:");
+// PrintMatrix(Release(matrix));
+
 
