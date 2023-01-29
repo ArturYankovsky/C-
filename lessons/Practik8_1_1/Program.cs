@@ -1,4 +1,5 @@
 ﻿// Домашняя задача 52 через массивы
+//
 
 void InputMatrix(int[,] matrix)
 {
